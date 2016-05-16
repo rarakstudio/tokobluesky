@@ -1,0 +1,61 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+IndexIgnore */*
+
+RewriteRule ^tokobluesky-communication$ media.php?module=home [L]
+
+#page-halaman statis
+RewriteRule ^profile-([0-9]+)\.html$ media.php?module=halamanstatis&id=$1 [L]
+RewriteRule ^terms-and-condition-([0-9]+)\.html$ media.php?module=halamanstatis&id=$1 [L]
+RewriteRule ^faq-([0-9]+)\.html$ media.php?module=halamanstatis&id=$1 [L]
+RewriteRule ^help-([0-9]+)\.html$ media.php?module=halamanstatis&id=$1 [L]
+RewriteRule ^cara-beli-([0-9]+)\.html$ media.php?module=halamanstatis&id=$1 [L]
+
+#blog
+RewriteRule ^blog.html$ media.php?module=blog [L]
+RewriteRule ^blog-(.*).html$ media.php?module=detail_blog&id=$1 [L]
+RewriteRule ^searching-blog.html$ media.php?module=cari_blog [L]
+
+#product
+RewriteRule ^product.html$ media.php?module=all_produk&id=$1 [L]
+RewriteRule ^product-(.*)$ media.php?module=produk_detail&id=$1 [L]
+RewriteRule ^produk-halaman-([0-9]+)$ media.php?module=all_produk&halaman=$1 [L]
+
+#konfirmasi
+RewriteRule ^konfirmasi.html$ media.php?module=konfirmasi  [QSA,L]
+RewriteRule ^konfirmasi-not-found.html$ media.php?module=konfirmasi&action=gagal [L]
+RewriteRule ^process-confirm.html$ media.php?module=confirm [L]
+
+#form
+RewriteRule ^contact-us.html$ media.php?module=formkontak [QSA,L]
+RewriteRule ^contact-process.html$ media.php?module=kontak [QSA,L]
+
+#gallery
+RewriteRule ^gallery.html$ media.php?module=allGallery&id=$1 [L]
+RewriteRule ^gallery-(.*)$ media.php?module=detailGallery&id=$1 [L]
+
+#kategori & sub kategori
+RewriteRule ^kategori-(.*)-([0-9]+)$ media.php?module=kategori_prod&seo=$1&id=$2 [L]
+RewriteRule ^subkategori-(.*)-([0-9]+)$ media.php?module=subkategori_prod&seo=$1&id=$2 [L]
+RewriteRule ^brand-(.*)-([0-9]+)$ media.php?module=detail_brand&seo=$1&id=$2 [L]
+
+#download
+RewriteRule ^download.html$ media.php?module=download [L]
+
+#pencarian
+RewriteRule ^prosesCari$ media.php?module=form_cari [L]
+
+#cart
+RewriteRule ^cart.html$ media.php?module=cart [L]
+
+#checkout
+RewriteRule ^checkout$ media.php?module=checkout [L]
+
+#orders
+RewriteRule ^orders$ media.php?module=orders [L]
+
+
+#prevent directory file listing
+Options All -Indexes
+</IfModule>
